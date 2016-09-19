@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+  <title>{{movie.name}}</title>
+</head>
+<body>
+  <h3>Add an actor</h3>
+  <form action='addactor' method='post'>
+    {% csrf_token %}
+    <input type='text' name='id' value='{{movie.id}}' hidden/>
+    Name: <input type='text' name='name'/>
+    <input type='submit' />
+  </form>
+{% for actor in actors %}
+<p><a href='actors/{{actor.id}}'>{{actor.name}}</a></p>
+{% endfor %}
+</body>
+</html>
