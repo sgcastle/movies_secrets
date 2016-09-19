@@ -8,4 +8,4 @@ class Movie(models.Model):
 
 class Actor(models.Model):
     name = models.CharField(max_length=100)
-    movies = models.ManyToManyField(Movie)
+    movies = models.ManyToManyField(Movie, related_name='actors')

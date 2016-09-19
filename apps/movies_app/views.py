@@ -23,15 +23,15 @@ def movie(request, id):
 
 def addmovie(request):
 	if request.method=='POST':
-		movie = Movie.objects.create(request.POST['title'])
+		movie = Movie.objects.create(title=request.POST['title'])
 		if 'id' in request.POST:
-			movie.actors.add(Actors.objects.get(id=request.POST['id']))
+			movie.actors.add(Actor.objects.get(id=request.POST['id']))
 		movie.save()
 	return redirect('/')
 
 def addactor(request):
 	if request.method=='POST':
-		actor = Actor.objects.create(request.POST['name'])
+		actor = Actor.objects.create(name=request.POST['name'])
 		if 'id' in request.POST:
 			actor.movies.add(Movie.objects.get(id=request.POST['id']))
 		actor.save()

@@ -8,7 +8,7 @@
 </head>
 <body>
   <h3>Add a movie</h3>
-  <form action='addmovie' method='post'>
+  <form action='../addmovie' method='post'>
     {% csrf_token %}
     <input type='text' name='id' value='{{actor.id}}' hidden/>
     Title: <input type='text' name='title'/>
